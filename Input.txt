@@ -1,0 +1,14 @@
+SUM     START   3000
+FIRST   LDX     ZERO
+        LDA     THREE
+LOOP    ADD     TABLE,X
+        TIX     COUNT
+        JLT     LOOP
+        STA     TOTAL
+        RSUB
+THREE   WORD    3
+TABLE   RESW    100
+COUNT   RESW    20
+ZERO    WORD    0
+TOTAL   RESW    1
+        END     FIRST
