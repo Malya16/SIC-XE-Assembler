@@ -1,6 +1,5 @@
 # SIC-XE-Assembler
 This project implements a two-pass assembler for the SIC/XE architecture, converting assembly code into machine-readable object code. Pass 1 builds the Symbol Table, calculates addresses, and detects errors. Pass 2 generates object code using the OPTAB and SYMTAB, resolving addresses and formatting instructions for execution.
-This project implements a two-pass assembler for the SIC/XE (Simplified Instructional Computer/Extended) architecture. The assembler is designed to process assembly programs, generate machine-readable object code, and produce a standard object program file for execution. Here's an overview of its key components and functionality for better understanding:
 
 1. Overview of SIC/XE Assembly Language
 SIC/XE is an extended version of the SIC architecture, featuring additional instructions, addressing modes, and registers.
@@ -16,6 +15,7 @@ Construct a Symbol Table (SYMTAB) to map labels to memory addresses.
 Calculate the Location Counter (LOCCTR), which keeps track of the memory address for each instruction or data declaration.
 Handle assembly directives (START, END, RESW, BYTE, etc.) for memory allocation.
 Detect and report errors like duplicate labels, invalid instructions, or missing starting points.
+
 Pass 2: Object Code Generation
 Objective: Translate assembly instructions into object code and handle unresolved symbols.
 Tasks:
@@ -24,13 +24,11 @@ Resolve operand addresses using the Symbol Table.
 Generate machine instructions in hexadecimal format, including indexed addressing when applicable.
 Handle constants (WORD, BYTE) and format object code properly.
 Detect and report errors such as unresolved symbols or invalid operands.
+
 3. Object Program Formatting
 After generating object code, the assembler organizes it into the standard object program format:
 Header Record (H): Contains the program name, starting address, and program length.
 Text Records (T): Contain the translated object code along with starting addresses and lengths.
 End Record (E): Specifies the execution start address.
-4. Features
-Error Detection: Includes checks for invalid mnemonics, duplicate labels, and missing symbols.
-Indexed Addressing: Supports SIC/XE’s addressing modes, including indexed addressing.
-Flexibility: Handles various assembly directives (START, BYTE, RESW, etc.) and machine instructions.
+
 This project is essential for understanding how assembly language programs are converted into executable machine code and provides a foundation for learning compilers and machine-level programming.
